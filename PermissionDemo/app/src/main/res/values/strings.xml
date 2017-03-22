@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">PermissionDemo</string>
+    <string name="show_camera">打开相机权限</string>
+    <string name="show_contacts">打开联系人权限</string>
+    <string name="back">返回</string>
+    <string name="contacts_string">Total number of contacts: %1$,d\nFirst contact:<b>%2$s</b></string>
+    <string name="add_contact">Add a contact</string>
+    <string name="show_contact">Show first contact</string>
+    <string name="contacts_intro">This fragment demonstrates access to the contact database on the device.\n
+            Clicking \"Add a contact\" adds a new contact named "__DUMMY ENTRY" directly into the database.\n
+    Clicking \"Show first contact\" accesses the contact database to display the name of the first contact.</string>
+    <string name="contacts_empty">没有</string>
+    <string name="permission_contacts_rationale">获取联系人权限</string>
+    <string name="button_allow">允许</string>
+    <string name="button_deny">拒绝</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="yuanshen">原生权限访问</string>
+</resources>
