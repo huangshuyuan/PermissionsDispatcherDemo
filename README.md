@@ -1,19 +1,26 @@
-#PermissionsDispatcher2.3.2使用
->Android6.0权限官网
+# PermissionsDispatcher2.3.2使用
+
+Android6.0权限官网
 https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html?hl=zh-cn
+
 系统权限：
 https://developer.android.com/training/permissions/index.html?hl=zh-cn
+
 权限的最佳做法：
 https://developer.android.com/training/permissions/best-practices.html?hl=zh-cn#testing
+
 该库的github地址
 https://github.com/hotchemi/PermissionsDispatcher
 
+
 ![权限](http://upload-images.jianshu.io/upload_images/3805053-e0fc4e86864bec50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-##Gradle配置
+
+## Gradle配置
 使用PermissionsDispatcher，需要在project的 build.gradle中添加
+
 ***
 
-#####（1）当Studio的版本在2.2之上
+### （1）当Studio的版本在2.2之上
 在app module中的build.gradle中添加：
 
 ```
@@ -28,7 +35,9 @@ dependencies {
  最新的是2.3.2。
 
 ***
-#####（2）当Studio的版低于2.2
+
+### （2）当Studio的版低于2.2
+
 在工程目录下build.gradle 文件中添加：
 ```
 buildscript {  
@@ -49,7 +58,7 @@ dependencies {  
 }  
 ```
 
-##用法：
+## 用法：
 #### 1.注解
 
 PermissionsDispatcher只介绍几个注解，保持其通用API简洁：
@@ -101,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-####2.自动生成的类
+#### 2.自动生成的类
 Activity继承了AppCompatActivity，是的，如果使用PermissionsDispatcher进行权限管理，那么Activity就要继承AppCompatActivity。这就要使用到了兼容包里的类了。同样此时相应Activity中使用的主题，也需要进行修改，修改成相应兼容包里的主题。
 在编译时，PermissionsDispatcher产生的一类MainActivityPermissionsDispatcher（[活动名称] + PermissionsDispatcher），您可以使用安全地访问这些许可保护的方法。
 
@@ -150,13 +159,13 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-#使用步骤：
-##### 一、在Manifest中添加权限
+# 使用步骤：
+#####  一、在Manifest中添加权限
 
 ```
   <uses-permission android:name="android.permission.CAMERA" />
 ```
-#####二、在Activity中添加注解
+##### 二、在Activity中添加注解
 
 ```
 
@@ -219,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "再次获取权限", Toast.LENGTH_SHORT).show();
     }
 ```
-##### 三、重写回调方法，并且使用MainActivityPermissionsDispatcher（此方法编译生成【Activity】+PermissionsDispatcher）
+#####  三、重写回调方法，并且使用MainActivityPermissionsDispatcher（此方法编译生成【Activity】+PermissionsDispatcher）
 
 ```
   /**
@@ -251,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 ***
 
-##注意
+## 注意
 * 使用到的权限需要在Mnifest里面注册
 * PermissionsDispatcher依赖于support-v4由默认库，以便能够使用一些权限compat的类。
 * 需要添加support-v13库一起PermissionsDispatcher在您的项目，它将使原生片段支持
@@ -261,8 +270,8 @@ public class MainActivity extends AppCompatActivity {
 ***
 ***
 ***
-#原生6.0权限使用
-###Android 6.0 变更
+# 原生6.0权限使用
+### Android 6.0 变更
 
 
 另请参阅
@@ -277,11 +286,11 @@ Android 6.0（API 级别 23）除了提供诸多新特性和功能外，还对�
  方法。即使您的应用并不以 Android 6.0（API 级别 23）为目标平台，您也应该在新权限模式下测试您的应用。
 #### 使用步骤
 
-######1、在AndroidManifest文件中添加需要的权限。
+###### 1、在AndroidManifest文件中添加需要的权限。
 
 这个步骤和我们之前的开发并没有什么变化，试图去申请一个没有声明的权限可能会导致程序崩溃。
 
-######2、检查权限
+###### 2、检查权限
 ```
 if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.READ_CONTACTS)
@@ -292,7 +301,7 @@ if (ContextCompat.checkSelfPermission(this,
 ```
 这里涉及到一个API，ContextCompat.checkSelfPermission，主要用于检测某个权限是否已经被授予，方法返回值为PackageManager.PERMISSION_DENIED或者PackageManager.PERMISSION_GRANTED。当返回DENIED就需要进行申请授权了。
 
-######3、申请授权
+###### 3、申请授权
 ```
  ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.READ_CONTACTS},
@@ -300,7 +309,7 @@ if (ContextCompat.checkSelfPermission(this,
 ```
 该方法是异步的，第一个参数是Context；第二个参数是需要申请的权限的字符串数组；第三个参数为requestCode，主要用于回调的时候检测。可以从方法名requestPermissions以及第二个参数看出，是支持一次性申请多个权限的，系统会通过对话框逐一询问用户是否授权。
 
-######4、处理权限申请回调
+###### 4、处理权限申请回调
 ```
 @Override
 public void onRequestPermissionsResult(int requestCode,
