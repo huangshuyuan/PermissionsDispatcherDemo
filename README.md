@@ -12,6 +12,9 @@ https://developer.android.com/training/permissions/best-practices.html?hl=zh-cn#
 该库的github地址
 https://github.com/hotchemi/PermissionsDispatcher
 
+可使用另外的权限库（严振杰）AndPermission
+https://github.com/yanzhenjie/AndPermission
+
 
 ![权限](http://upload-images.jianshu.io/upload_images/3805053-e0fc4e86864bec50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
